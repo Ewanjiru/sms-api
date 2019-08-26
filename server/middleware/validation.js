@@ -12,7 +12,7 @@ const validateId = celebrate({
 const validateContact = (contactDetails) => {
   const schema = {
     name: joi.string().max(50).min(2).required(),
-    phoneNumber: joi.number().min(10).required(),
+    phoneNumber: joi.number().min(1000000000).max(9999999999).required(),
   };
 
   return (joi.validate(contactDetails, schema));

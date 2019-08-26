@@ -149,15 +149,6 @@ describe('test contacts controller', async () => {
       });
   });
 
-  it('cant delete a contact with an invalid id ', (done) => {
-    chai.request(app)
-      .delete('/api/contacts/6363test')
-      .end((err, res) => {
-        res.should.have.status(400);
-        done();
-      });
-  });
-
   it('errors on delete of contact that does not exist ', (done) => {
     chai.request(app)
       .delete(`/api/contacts/5d611cf72fd0237fd9aabde9`)

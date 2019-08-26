@@ -52,7 +52,8 @@ const deleteContact = () => async (req, res) => {
   try {
     const contact = await Contact.findById(req.params.id);
     if (!contact) return res.status(404).send({ message: 'That contact does not exist' });
-    await Sms.remove({ sender: contact });
+    await Sms.find({ sender: contact }).updateMany({ $unset: { 'sender': '' } });
+    await Sms.remove({ recipient: contact });
     await Contact.findOneAndRemove({ _id: req.params.id });
     res.status(200).send({ message: 'Successfully deleted' });
   } catch (err) {

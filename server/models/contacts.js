@@ -11,6 +11,7 @@ const contactSchema = new Schema({
   phoneNumber: {
     type: Number,
     minlength: 10,
+    maxlength: 10,
     required: true,
   },
 });

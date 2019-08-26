@@ -14,6 +14,11 @@ describe('test sms controller', async () => {
     done();
   });
 
+  after((done) => {
+    mongoose.connection.dropDatabase();
+    done();
+  });
+
   it('Should throw an error if recipient is not supplied', (done) => {
     const sms = {
       recipient: '',
@@ -34,9 +39,13 @@ describe('test sms controller', async () => {
 
   it('Should throw an error if sender is not supplied', (done) => {
     chai.request(app)
-      .get('/api/contacts/')
+      .post('/api/contacts/')
+      .send({
+        name: 'TestName',
+        phoneNumber: '0723457802',
+      })
       .end((err, res) => {
-        const recipientId = res.body[0]._id
+        const recipientId = res.body._id
         const sms = {
           recipientId,
           message: 'Random message',
@@ -58,14 +67,17 @@ describe('test sms controller', async () => {
 
   it('Should throw an error if message is not supplied', (done) => {
     chai.request(app)
-      .get('/api/contacts/')
+      .post('/api/contacts/')
+      .send({
+        name: 'TestName',
+        phoneNumber: '0723457802',
+      })
       .end((err, res) => {
-        const recipientId = res.body[0]._id
-        const senderId = res.body[1]._id
+        const recipientId = res.body._id
         const sms = {
           recipientId,
           message: '',
-          senderId,
+          senderId: res.body._id,
         };
 
         chai.request(app)
