@@ -1,2 +1,2 @@
 DBURL=''
-PORT=
+TEST_DBURL=''
