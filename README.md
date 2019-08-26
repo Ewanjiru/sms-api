@@ -127,8 +127,28 @@ DELETE a message /api/sms/:messageId
 Response
 status code 204
 
-GET messages by sent by contact /api/sms/sent-messages?id=phone
-in this case phone is 1239009321
+GET a single message /api/sms/:messageId
+Response
+{
+    "status": "sent",
+    "_id": "5d63efb79530aa09c9347a8c",
+    "recipient": {
+        "_id": "5d63421d5b9ddbc567ecf645",
+        "name": "Rama",
+        "phoneNumber": 7126477369,
+        "__v": 0
+    },
+    "message": "aghgdajgduqytgvda djgegdwjki",
+    "sender": {
+        "_id": "5d63ee469530aa09c9347a87",
+        "name": "Njeri",
+        "phoneNumber": 7126477369,
+        "__v": 0
+    },
+    "__v": 0
+}
+
+GET messages by a contact /api/sms?id=5d63effa9530aa09c9347a92
 
 Response
 {
