@@ -6,7 +6,7 @@ This is a node.js app built using below technologies.
 
 - BodyParser: This module was used to collect search data sent from the client side to the routing page.
 
-- Mongoose
+- Mongoose:  An Object Data Modeling (ODM) library for MongoDB and Node.js
 
 - MongoDB: PostgreSQL is a powerful, open source object-relational database system.
 
