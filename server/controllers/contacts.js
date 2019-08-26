@@ -40,6 +40,8 @@ const getOneContact = () => async (req, res) => {
 
 const updateContact = () => async (req, res) => {
   try {
+    const { name, phone } = req.body;
+    if (!name && !phone) return res.status(400).send({ message: 'No change detected' });
     const editContact = await Contact.findByIdAndUpdate(req.params.id, req.body);
     if (!editContact) return res.status(404).send({ message: 'That contact does not exist' });
     res.status(200).send({ message: 'Successfully updated' });

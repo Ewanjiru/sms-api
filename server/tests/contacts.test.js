@@ -1,7 +1,6 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const mongoose = require('mongoose');
-
 const app = require('../../server');
 
 const expect = chai.expect();
@@ -10,7 +9,7 @@ chai.use(chaiHttp);
 
 describe('test contacts controller', async () => {
   before((done) => {
-    mongoose.connect(process.env.TEST_DBURL, { useNewUrlParser: true });
+    mongoose.connect(`${process.env.TEST_DBURL}`, { useNewUrlParser: true });
     done();
   });
 

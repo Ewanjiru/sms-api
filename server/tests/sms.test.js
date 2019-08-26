@@ -10,7 +10,7 @@ chai.use(chaiHttp);
 
 describe('test sms controller', async () => {
   before((done) => {
-    mongoose.connect(process.env.TEST_DBURL, { useNewUrlParser: true });
+    mongoose.connect(`${process.env.TEST_DBURL}`, { useNewUrlParser: true });
     done();
   });
 
