@@ -35,8 +35,7 @@ A user can:
 - update a contact
 - delete a contact
 - create a message
-- get messages sent by a contact
-- get messages received by a contact
+- get messages by a contact
 - delete a message
 
 **API Documentation**
